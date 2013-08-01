@@ -1,0 +1,25 @@
+﻿<Window x:Class="MHFU.wCombo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Combo" Height="300" Width="650" Icon="images/items/White Book.png">
+    <Grid>
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <TextBox Name="TxtRefine" TextChanged="Refine" Margin="4" Style="{StaticResource Search}" />
+            </DockPanel>
+            <DataGrid Name="dgTable" ItemsSource="{Binding}" ColumnHeaderStyle="{StaticResource Header}" RowStyle="{StaticResource Alchemy}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="#" Binding="{Binding ID}" />
+                    <DataGridTemplateColumn CellTemplate="{StaticResource ComboRColumn}" />
+                    <DataGridTextColumn Header="Result" Binding="{Binding Item.Name}" CellStyle="{StaticResource EmphasizedColumn}" />
+                    <DataGridTemplateColumn CellTemplate="{StaticResource Combo1Column}"></DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Item A" Binding="{Binding Item1.Name}" />
+                    <DataGridTemplateColumn CellTemplate="{StaticResource Combo2Column}"></DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Item B" Binding="{Binding Item2.Name}" />
+                    <DataGridTextColumn Header="Success %" Binding="{Binding Success, StringFormat={}{0}%}" CellStyle="{StaticResource Percentage}"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Window>

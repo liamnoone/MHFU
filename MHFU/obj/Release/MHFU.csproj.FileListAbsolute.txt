@@ -1,0 +1,14 @@
+D:\Coding\Repos\MHFU\MHFU\bin\Release\MHFU.exe.config
+D:\Coding\Repos\MHFU\MHFU\bin\Release\MHFU.exe
+D:\Coding\Repos\MHFU\MHFU\bin\Release\MHFU.pdb
+D:\Coding\Repos\MHFU\MHFU\obj\Release\MainWindow.baml
+D:\Coding\Repos\MHFU\MHFU\obj\Release\WdoTrenya.baml
+D:\Coding\Repos\MHFU\MHFU\obj\Release\MainWindow.g.cs
+D:\Coding\Repos\MHFU\MHFU\obj\Release\WdoTrenya.g.cs
+D:\Coding\Repos\MHFU\MHFU\obj\Release\App.g.cs
+D:\Coding\Repos\MHFU\MHFU\obj\Release\MHFU_MarkupCompile.cache
+D:\Coding\Repos\MHFU\MHFU\obj\Release\MHFU.g.resources
+D:\Coding\Repos\MHFU\MHFU\obj\Release\MHFU.Properties.Resources.resources
+D:\Coding\Repos\MHFU\MHFU\obj\Release\MHFU.csproj.GenerateResource.Cache
+D:\Coding\Repos\MHFU\MHFU\obj\Release\MHFU.exe
+D:\Coding\Repos\MHFU\MHFU\obj\Release\MHFU.pdb

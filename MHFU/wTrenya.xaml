@@ -1,0 +1,35 @@
+﻿<Window x:Class="MHFU.wTrenya"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Trenya" Height="280" Width="450" Loaded="OnLoad" Icon="images/items/Binoculars.png">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="ComboBoxItem">
+                <Setter Property="FontWeight" Value="Normal" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Margin="7">
+            <ComboBox DockPanel.Dock="Right" Margin="10,0,0,0" FontWeight="DemiBold" Name="CboPoints" SelectionChanged="Update" SelectedIndex="0">
+                <ComboBoxItem>200</ComboBoxItem>
+                <ComboBoxItem>300</ComboBoxItem>
+                <ComboBoxItem>500</ComboBoxItem>
+                <ComboBoxItem>1000</ComboBoxItem>
+                <ComboBoxItem>1500</ComboBoxItem>
+            </ComboBox>
+            <ComboBox FontWeight="DemiBold" Name="CboLocation" SelectionChanged="Update" ItemsSource="{Binding}" DisplayMemberPath="Loc" SelectedValuePath="ID"/>
+        </DockPanel>
+        <DockPanel Grid.Row="1" Margin="7">
+            <Button DockPanel.Dock="Right" Margin="10,0,0,0" Width="48" Click="Search" IsDefault="True">Search</Button>
+            <TextBox Name="TxtSearch" />
+        </DockPanel>
+        <DockPanel Grid.Row="2">
+            <StackPanel DockPanel.Dock="Top" />
+            <ListBox Name="LstResults" Margin="7,0,7,3" />
+        </DockPanel>
+    </Grid>
+</Window>

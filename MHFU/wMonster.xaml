@@ -1,0 +1,118 @@
+﻿<Window x:Class="MHFU.wMonster"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Monsters" Icon="images/items/White Scale.png" Height="600" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="0" Margin="4,0,4,4" Header="Monsters">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="8*" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Margin="4,5,4,4" BorderBrush="DarkSlateGray" 
+                        BorderThickness="1.5" HorizontalAlignment="Center" 
+                        CornerRadius="2" Visibility="Hidden" Name="bImage">
+                    <Image Name="imgIcon" Source="{Binding Converter={StaticResource Image}}" Margin="5" />
+                    </Border>
+                
+                <DockPanel Grid.Row="1">
+                    <TextBox Name="txtRefine" DockPanel.Dock="Top" Margin="0,4" />
+                    <DataGrid Name="dgMonsters" Grid.Row="1" ItemsSource="{Binding}" SelectionChanged="DgMonsters_OnSelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="#" Binding="{Binding ID}" />
+                            <DataGridTemplateColumn Width="30" CellTemplate="{StaticResource MonsterIcon}" />
+                            <DataGridTextColumn Header="Monster" Binding="{Binding Name}" HeaderStyle="{StaticResource Header}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </Grid>
+        </GroupBox>
+        <TabControl Grid.Column="1" Margin="5">
+            <TabItem Header="Carves">
+                <Grid Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <GroupBox Grid.Row="0" Margin="4,0" Header="Low Rank">
+                        <DataGrid Name="dgLowRank" Grid.Row="0" Margin="3" ItemsSource="{Binding}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="25" CellTemplate="{StaticResource ItemColumn}" />
+                                <DataGridTextColumn Header="Item" Binding="{Binding Item1.Name}" FontWeight="Bold" HeaderStyle="{StaticResource Header}" />
+                                <DataGridTextColumn Header="Qty" Binding="{Binding Quantity}" />
+                                <DataGridTextColumn Header="Rate" Binding="{Binding Rate, StringFormat={}{0}%}" />
+                                <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                    
+                    <GroupBox Grid.Row="1" Margin="4,0" Header="High Rank">
+                        <DataGrid Name="dgHighRank" Grid.Row="1" Margin="3" ItemsSource="{Binding}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="25" CellTemplate="{StaticResource ItemColumn}" />
+                                <DataGridTextColumn Header="Item" Binding="{Binding Item1.Name}" FontWeight="Bold" HeaderStyle="{StaticResource Header}" />
+                                <DataGridTextColumn Header="Qty" Binding="{Binding Quantity}" />
+                                <DataGridTextColumn Header="Rate" Binding="{Binding Rate, StringFormat={}{0}%}" />
+                                <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                    
+                    <GroupBox Grid.Row="2" Margin="4,0,4,4" Header="G Rank">
+                        <DataGrid Name="dgGRank" Grid.Row="2" Margin="3" ItemsSource="{Binding}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="25" CellTemplate="{StaticResource ItemColumn}" />
+                                <DataGridTextColumn Header="Item" Binding="{Binding Item1.Name}" FontWeight="Bold" HeaderStyle="{StaticResource Header}" />
+                                <DataGridTextColumn Header="Qty" Binding="{Binding Quantity}" />
+                                <DataGridTextColumn Header="Rate" Binding="{Binding Rate, StringFormat={}{0}%}" />
+                                <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Quests">
+                <Grid Margin="4,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="8*" />
+                    </Grid.RowDefinitions>
+                    <GroupBox Grid.Row="0" Header="Size Quests">
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <GroupBox Grid.Column="0" Name="gbKing" Header="King Crown">
+                                <DataGrid Name="dgKing" Margin="3" ItemsSource="{Binding}">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Quest Name" Binding="{Binding Name}" HeaderStyle="{StaticResource Header}" 
+                                                            CellStyle="{StaticResource EmphasizedColumn}" />
+                                        <DataGridTextColumn Header="Quest Giver" Binding="{Binding Giver}" />
+                                        <DataGridTextColumn Header="Quest Rank" Binding="{Binding Rank}" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </GroupBox>
+                            <GroupBox Grid.Column="1" Name="gbMini" Header="Mini Crown">
+                                <DataGrid Name="dgMini" Margin="3" ItemsSource="{Binding}">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Quest Name" Binding="{Binding Name}" HeaderStyle="{StaticResource Header}" 
+                                                            CellStyle="{StaticResource EmphasizedColumn}" />
+                                        <DataGridTextColumn Header="Quest Giver" Binding="{Binding Giver}" />
+                                        <DataGridTextColumn Header="Quest Rank" Binding="{Binding Rank}" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </GroupBox>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

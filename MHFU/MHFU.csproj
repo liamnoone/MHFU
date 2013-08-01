@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8D75AD2-93BC-4C1E-876D-F86A679EC178}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MHFU</RootNamespace>
+    <AssemblyName>MHFU</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Data.cs">
+      <DependentUpon>Data.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Data.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Data.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="wCombo.xaml.cs">
+      <DependentUpon>wCombo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wDecoration.xaml.cs">
+      <DependentUpon>wDecoration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wItem.xaml.cs">
+      <DependentUpon>wItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wMonster.xaml.cs">
+      <DependentUpon>wMonster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wSkills.xaml.cs">
+      <DependentUpon>wSkills.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wTrenya.xaml.cs">
+      <DependentUpon>wTrenya.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wVeggieElder.xaml.cs">
+      <DependentUpon>wVeggieElder.xaml</DependentUpon>
+    </Compile>
+    <Page Include="wDecoration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="wMain.xaml.cs">
+      <DependentUpon>wMain.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="wCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wMonster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wSkills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wTrenya.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wVeggieElder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Data.dbml.layout">
+      <DependentUpon>Data.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Data.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Data.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\areas\Desert.png" />
+    <Resource Include="images\areas\Forest and Hills.png" />
+    <Resource Include="images\areas\Great Forest.png" />
+    <Resource Include="images\areas\Jungle.png" />
+    <Resource Include="images\areas\Swamp.png" />
+    <Resource Include="images\areas\Volcano.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\monsters\Felyne.png" />
+    <Resource Include="images\monsters\King Shakalaka.png" />
+    <Resource Include="images\monsters\Melynx.png" />
+    <Resource Include="images\monsters\Shakalaka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\items\BBQ Spit.png" />
+    <Resource Include="images\items\Binoculars.png" />
+    <Resource Include="images\items\Blue Ammo.png" />
+    <Resource Include="images\items\Blue Bait.png" />
+    <Resource Include="images\items\Blue Bomb.png" />
+    <Resource Include="images\items\Blue Book.png" />
+    <Resource Include="images\items\Blue Carapaceon.png" />
+    <Resource Include="images\items\Blue Coin.png" />
+    <Resource Include="images\items\Blue Decoration.png" />
+    <Resource Include="images\items\Blue Fang.png" />
+    <Resource Include="images\items\Blue Fish.png" />
+    <Resource Include="images\items\Blue Flute.png" />
+    <Resource Include="images\items\Blue Heavenly.png" />
+    <Resource Include="images\items\Blue Herb.png" />
+    <Resource Include="images\items\Blue Hide.png" />
+    <Resource Include="images\items\Blue Insect.png" />
+    <Resource Include="images\items\Blue Jewel.png" />
+    <Resource Include="images\items\Blue Liquid.png" />
+    <Resource Include="images\items\Blue Mushroom.png" />
+    <Resource Include="images\items\Blue Sac.png" />
+    <Resource Include="images\items\Blue Scale.png" />
+    <Resource Include="images\items\Blue Shell.png" />
+    <Resource Include="images\items\Blue Sphere.png" />
+    <Resource Include="images\items\Blue Stone.png" />
+    <Resource Include="images\items\Blue Ticket.png" />
+    <Resource Include="images\items\Blue Trap.png" />
+    <Resource Include="images\items\Boomerang.png" />
+    <Resource Include="images\items\Bottle.png" />
+    <Resource Include="images\items\Cyan Ammo.png" />
+    <Resource Include="images\items\Cyan Bait.png" />
+    <Resource Include="images\items\Cyan Bone.png" />
+    <Resource Include="images\items\Cyan Book.png" />
+    <Resource Include="images\items\Cyan Coating.png" />
+    <Resource Include="images\items\Cyan Coin.png" />
+    <Resource Include="images\items\Cyan Decoration.png" />
+    <Resource Include="images\items\Cyan Fish.png" />
+    <Resource Include="images\items\Cyan Heavenly.png" />
+    <Resource Include="images\items\Cyan Herb.png" />
+    <Resource Include="images\items\Cyan Insect.png" />
+    <Resource Include="images\items\Cyan Jewel.png" />
+    <Resource Include="images\items\Cyan Knife.png" />
+    <Resource Include="images\items\Cyan Liquid.png" />
+    <Resource Include="images\items\Cyan Meat.png" />
+    <Resource Include="images\items\Cyan Mushroom.png" />
+    <Resource Include="images\items\Cyan Sac.png" />
+    <Resource Include="images\items\Cyan Scale.png" />
+    <Resource Include="images\items\Cyan Shell.png" />
+    <Resource Include="images\items\Cyan Smoke.png" />
+    <Resource Include="images\items\Cyan Sphere.png" />
+    <Resource Include="images\items\Cyan Stone.png" />
+    <Resource Include="images\items\Cyan Ticket.png" />
+    <Resource Include="images\items\Cyan Unknown.png" />
+    <Resource Include="images\items\Droppings.png" />
+    <Resource Include="images\items\Dung.png" />
+    <Resource Include="images\items\Gourmet BBQ Spit.png" />
+    <Resource Include="images\items\Green Ammo.png" />
+    <Resource Include="images\items\Green Bait.png" />
+    <Resource Include="images\items\Green Decoration.png" />
+    <Resource Include="images\items\Green Fang.png" />
+    <Resource Include="images\items\Green Fish.png" />
+    <Resource Include="images\items\Green Flute.png" />
+    <Resource Include="images\items\Green Heavenly.png" />
+    <Resource Include="images\items\Green Herb.png" />
+    <Resource Include="images\items\Green Hide.png" />
+    <Resource Include="images\items\Green Insect.png" />
+    <Resource Include="images\items\Green Jewel.png" />
+    <Resource Include="images\items\Green Liquid.png" />
+    <Resource Include="images\items\Green Sac.png" />
+    <Resource Include="images\items\Green Scale.png" />
+    <Resource Include="images\items\Green Seed.png" />
+    <Resource Include="images\items\Green Shell.png" />
+    <Resource Include="images\items\Green Smoke.png" />
+    <Resource Include="images\items\Green Sphere.png" />
+    <Resource Include="images\items\Green Stone.png" />
+    <Resource Include="images\items\Green Ticket.png" />
+    <Resource Include="images\items\Green Webbing.png" />
+    <Resource Include="images\items\Grey Ammo.png" />
+    <Resource Include="images\items\Grey Bait.png" />
+    <Resource Include="images\items\Grey Barrel.png" />
+    <Resource Include="images\items\Grey Bone.png" />
+    <Resource Include="images\items\Grey Book.png" />
+    <Resource Include="images\items\Grey Bugnet.png" />
+    <Resource Include="images\items\Grey Carapaceon.png" />
+    <Resource Include="images\items\Grey Coin.png" />
+    <Resource Include="images\items\Grey Decoration.png" />
+    <Resource Include="images\items\Grey Egg.png" />
+    <Resource Include="images\items\Grey Fang.png" />
+    <Resource Include="images\items\Grey Fish.png" />
+    <Resource Include="images\items\Grey Heavenly.png" />
+    <Resource Include="images\items\Grey Herb.png" />
+    <Resource Include="images\items\Grey Hide.png" />
+    <Resource Include="images\items\Grey Husk.png" />
+    <Resource Include="images\items\Grey Insect.png" />
+    <Resource Include="images\items\Grey Jewel.png" />
+    <Resource Include="images\items\Grey Meat.png" />
+    <Resource Include="images\items\Grey Mushroom.png" />
+    <Resource Include="images\items\Grey Pickaxe.png" />
+    <Resource Include="images\items\Grey Sac.png" />
+    <Resource Include="images\items\Grey Scale.png" />
+    <Resource Include="images\items\Grey Seed.png" />
+    <Resource Include="images\items\Grey Shell.png" />
+    <Resource Include="images\items\Grey Stone.png" />
+    <Resource Include="images\items\Grey Ticket.png" />
+    <Resource Include="images\items\Grey Unknown.png" />
+    <Resource Include="images\items\Grey Webbing.png" />
+    <Resource Include="images\items\King Crown.png" />
+    <Resource Include="images\items\Lightning Rod.png" />
+    <Resource Include="images\items\Map.png" />
+    <Resource Include="images\items\Mini Crown.png" />
+    <Resource Include="images\items\Orange Ammo.png" />
+    <Resource Include="images\items\Orange BBQ Spit.png" />
+    <Resource Include="images\items\Orange Bone.png" />
+    <Resource Include="images\items\Orange Carapaceon.png" />
+    <Resource Include="images\items\Orange Decoration.png" />
+    <Resource Include="images\items\Orange Fang.png" />
+    <Resource Include="images\items\Orange Fish.png" />
+    <Resource Include="images\items\Orange Flute.png" />
+    <Resource Include="images\items\Orange Heavenly.png" />
+    <Resource Include="images\items\Orange Hide.png" />
+    <Resource Include="images\items\Orange Insect.png" />
+    <Resource Include="images\items\Orange Jewel.png" />
+    <Resource Include="images\items\Orange Liquid.png" />
+    <Resource Include="images\items\Orange Meat.png" />
+    <Resource Include="images\items\Orange Mushroom.png" />
+    <Resource Include="images\items\Orange Sac.png" />
+    <Resource Include="images\items\Orange Scale.png" />
+    <Resource Include="images\items\Orange Seed.png" />
+    <Resource Include="images\items\Orange Shell.png" />
+    <Resource Include="images\items\Orange Stone.png" />
+    <Resource Include="images\items\Orange Ticket.png" />
+    <Resource Include="images\items\Orange Unknown.png" />
+    <Resource Include="images\items\Orange Webbing.png" />
+    <Resource Include="images\items\Pink Ammo.png" />
+    <Resource Include="images\items\Pink Bait.png" />
+    <Resource Include="images\items\Pink Bone.png" />
+    <Resource Include="images\items\Pink Carapaceon.png" />
+    <Resource Include="images\items\Pink Coating.png" />
+    <Resource Include="images\items\Pink Coin.png" />
+    <Resource Include="images\items\Pink Decoration.png" />
+    <Resource Include="images\items\Pink Fang.png" />
+    <Resource Include="images\items\Pink Fish.png" />
+    <Resource Include="images\items\Pink Heavenly.png" />
+    <Resource Include="images\items\Pink Herb.png" />
+    <Resource Include="images\items\Pink Hide.png" />
+    <Resource Include="images\items\Pink Insect.png" />
+    <Resource Include="images\items\Pink Jewel.png" />
+    <Resource Include="images\items\Pink Mushroom.png" />
+    <Resource Include="images\items\Pink Sac.png" />
+    <Resource Include="images\items\Pink Scale.png" />
+    <Resource Include="images\items\Pink Seed.png" />
+    <Resource Include="images\items\Pink Shell.png" />
+    <Resource Include="images\items\Pink Stone.png" />
+    <Resource Include="images\items\Pink Ticket.png" />
+    <Resource Include="images\items\Pink Webbing.png" />
+    <Resource Include="images\items\Pitfall Trap.png" />
+    <Resource Include="images\items\Purple Ammo.png" />
+    <Resource Include="images\items\Purple Bone.png" />
+    <Resource Include="images\items\Purple Book.png" />
+    <Resource Include="images\items\Purple Coating.png" />
+    <Resource Include="images\items\Purple Coin.png" />
+    <Resource Include="images\items\Purple Decoration.png" />
+    <Resource Include="images\items\Purple Fang.png" />
+    <Resource Include="images\items\Purple Herb.png" />
+    <Resource Include="images\items\Purple Hide.png" />
+    <Resource Include="images\items\Purple Insect.png" />
+    <Resource Include="images\items\Purple Jewel.png" />
+    <Resource Include="images\items\Purple Knife.png" />
+    <Resource Include="images\items\Purple Meat.png" />
+    <Resource Include="images\items\Purple Mushroom.png" />
+    <Resource Include="images\items\Purple Pickaxe.png" />
+    <Resource Include="images\items\Purple Sac.png" />
+    <Resource Include="images\items\Purple Scale.png" />
+    <Resource Include="images\items\Purple Shell.png" />
+    <Resource Include="images\items\Purple Smoke.png" />
+    <Resource Include="images\items\Purple Sphere.png" />
+    <Resource Include="images\items\Purple Stone.png" />
+    <Resource Include="images\items\Purple Ticket.png" />
+    <Resource Include="images\items\Purple Webbing.png" />
+    <Resource Include="images\items\Red Ammo.png" />
+    <Resource Include="images\items\Red Barrel.png" />
+    <Resource Include="images\items\Red Bomb.png" />
+    <Resource Include="images\items\Red Bone.png" />
+    <Resource Include="images\items\Red Book.png" />
+    <Resource Include="images\items\Red Carapaceon.png" />
+    <Resource Include="images\items\Red Coating.png" />
+    <Resource Include="images\items\Red Coin.png" />
+    <Resource Include="images\items\Red Decoration.png" />
+    <Resource Include="images\items\Red Fang.png" />
+    <Resource Include="images\items\Red Fish.png" />
+    <Resource Include="images\items\Red Flute.png" />
+    <Resource Include="images\items\Red Heavenly.png" />
+    <Resource Include="images\items\Red Herb.png" />
+    <Resource Include="images\items\Red Hide.png" />
+    <Resource Include="images\items\Red Insect.png" />
+    <Resource Include="images\items\Red Jewel.png" />
+    <Resource Include="images\items\Red Knife.png" />
+    <Resource Include="images\items\Red Liquid.png" />
+    <Resource Include="images\items\Red Meat.png" />
+    <Resource Include="images\items\Red Mushroom.png" />
+    <Resource Include="images\items\Red Sac.png" />
+    <Resource Include="images\items\Red Scale.png" />
+    <Resource Include="images\items\Red Seed.png" />
+    <Resource Include="images\items\Red Shell.png" />
+    <Resource Include="images\items\Red Sphere.png" />
+    <Resource Include="images\items\Red Stone.png" />
+    <Resource Include="images\items\Red Ticket.png" />
+    <Resource Include="images\items\Red Unknown.png" />
+    <Resource Include="images\items\Red Webbing.png" />
+    <Resource Include="images\items\Shock Trap.png" />
+    <Resource Include="images\items\Trap Tool.png" />
+    <Resource Include="images\items\Web.png" />
+    <Resource Include="images\items\Whetstone.png" />
+    <Resource Include="images\items\White Ammo.png" />
+    <Resource Include="images\items\White Bait.png" />
+    <Resource Include="images\items\White Bone.png" />
+    <Resource Include="images\items\White Book.png" />
+    <Resource Include="images\items\White Bugnet.png" />
+    <Resource Include="images\items\White Carapaceon.png" />
+    <Resource Include="images\items\White Coating.png" />
+    <Resource Include="images\items\White Coin.png" />
+    <Resource Include="images\items\White Decoration.png" />
+    <Resource Include="images\items\White Egg.png" />
+    <Resource Include="images\items\White Fang.png" />
+    <Resource Include="images\items\White Fish.png" />
+    <Resource Include="images\items\White Flute.png" />
+    <Resource Include="images\items\White Heavenly.png" />
+    <Resource Include="images\items\White Herb.png" />
+    <Resource Include="images\items\White Hide.png" />
+    <Resource Include="images\items\White Husk.png" />
+    <Resource Include="images\items\White Insect.png" />
+    <Resource Include="images\items\White Jewel.png" />
+    <Resource Include="images\items\White Knife.png" />
+    <Resource Include="images\items\White Liquid.png" />
+    <Resource Include="images\items\White Meat.png" />
+    <Resource Include="images\items\White Mushroom.png" />
+    <Resource Include="images\items\White Pickaxe.png" />
+    <Resource Include="images\items\White Sac.png" />
+    <Resource Include="images\items\White Scale.png" />
+    <Resource Include="images\items\White Shell.png" />
+    <Resource Include="images\items\White Smoke.png" />
+    <Resource Include="images\items\White Sphere.png" />
+    <Resource Include="images\items\White Stone.png" />
+    <Resource Include="images\items\White Ticket.png" />
+    <Resource Include="images\items\White Unknown.png" />
+    <Resource Include="images\items\White Webbing.png" />
+    <Resource Include="images\items\Yellow Ammo.png" />
+    <Resource Include="images\items\Yellow Bait.png" />
+    <Resource Include="images\items\Yellow Barrel.png" />
+    <Resource Include="images\items\Yellow Bomb.png" />
+    <Resource Include="images\items\Yellow Bone.png" />
+    <Resource Include="images\items\Yellow Book.png" />
+    <Resource Include="images\items\Yellow Bugnet.png" />
+    <Resource Include="images\items\Yellow Coating.png" />
+    <Resource Include="images\items\Yellow Coin.png" />
+    <Resource Include="images\items\Yellow Decoration.png" />
+    <Resource Include="images\items\Yellow Egg.png" />
+    <Resource Include="images\items\Yellow Fang.png" />
+    <Resource Include="images\items\Yellow Fish.png" />
+    <Resource Include="images\items\Yellow Flute.png" />
+    <Resource Include="images\items\Yellow Heavenly.png" />
+    <Resource Include="images\items\Yellow Herb.png" />
+    <Resource Include="images\items\Yellow Hide.png" />
+    <Resource Include="images\items\Yellow Insect.png" />
+    <Resource Include="images\items\Yellow Jewel.png" />
+    <Resource Include="images\items\Yellow Knife.png" />
+    <Resource Include="images\items\Yellow Liquid.png" />
+    <Resource Include="images\items\Yellow Meat.png" />
+    <Resource Include="images\items\Yellow Mushroom.png" />
+    <Resource Include="images\items\Yellow Pickaxe.png" />
+    <Resource Include="images\items\Yellow Sac.png" />
+    <Resource Include="images\items\Yellow Scale.png" />
+    <Resource Include="images\items\Yellow Seed.png" />
+    <Resource Include="images\items\Yellow Shell.png" />
+    <Resource Include="images\items\Yellow Sphere.png" />
+    <Resource Include="images\items\Yellow Stone.png" />
+    <Resource Include="images\items\Yellow Ticket.png" />
+    <Resource Include="images\items\Yellow Unknown.png" />
+    <Resource Include="images\items\Yellow Webbing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\monsters\Akantor Icon.png" />
+    <Resource Include="images\monsters\Akantor.png" />
+    <Resource Include="images\monsters\Anteka Icon.png" />
+    <Resource Include="images\monsters\Anteka.png" />
+    <Resource Include="images\monsters\Apceros Icon.png" />
+    <Resource Include="images\monsters\Apceros.png" />
+    <Resource Include="images\monsters\Aptonoth Icon.png" />
+    <Resource Include="images\monsters\Aptonoth.png" />
+    <Resource Include="images\monsters\Ashen Lao-Shan Lung Icon.png" />
+    <Resource Include="images\monsters\Ashen Lao-Shan Lung.png" />
+    <Resource Include="images\monsters\Basarios Icon.png" />
+    <Resource Include="images\monsters\Basarios.png" />
+    <Resource Include="images\monsters\Black Diablos.png" />
+    <Resource Include="images\monsters\Blango Icon.png" />
+    <Resource Include="images\monsters\Blango.jpg" />
+    <Resource Include="images\monsters\Blangonga Icon.png" />
+    <Resource Include="images\monsters\Blangonga.png" />
+    <Resource Include="images\monsters\Blue Yian Kut-Ku Icon.png" />
+    <Resource Include="images\monsters\Blue Yian Kut-Ku.png" />
+    <Resource Include="images\monsters\Bulldrome Icon.png" />
+    <Resource Include="images\monsters\Bulldrome.png" />
+    <Resource Include="images\monsters\Bullfango Icon.png" />
+    <Resource Include="images\monsters\Bullfango.png" />
+    <Resource Include="images\monsters\Ceanataur Icon.png" />
+    <Resource Include="images\areas\Snowy Mountains.png" />
+    <Resource Include="images\areas\Arena.png" />
+    <Resource Include="images\areas\Battleground.png" />
+    <Resource Include="images\areas\Castle Shrade.png" />
+    <Resource Include="images\areas\Forest &amp; Hills.png" />
+    <Resource Include="images\areas\Fortress.png" />
+    <Resource Include="images\areas\Great Arena.png" />
+    <Resource Include="images\areas\Moat Arena.png" />
+    <Resource Include="images\areas\Old Desert.png" />
+    <Resource Include="images\areas\Old Jungle.png" />
+    <Resource Include="images\areas\Old Swamp.png" />
+    <Resource Include="images\areas\Old Volcano.png" />
+    <Resource Include="images\areas\SnwyMntains Peak.png" />
+    <Resource Include="images\areas\Tower.png" />
+    <Resource Include="images\areas\Town.png" />
+    <Resource Include="images\areas\Trenya.png" />
+    <Resource Include="images\items\Cyan Egg.png" />
+    <Resource Include="images\items\Green Egg.png" />
+    <Resource Include="images\items\Orange Egg.png" />
+    <Resource Include="images\items\Pink Egg.png" />
+    <Content Include="images\monsters\Ceanataur.png" />
+    <Resource Include="images\monsters\Cephadrome Icon.png" />
+    <Resource Include="images\monsters\Cephadrome.png" />
+    <Resource Include="images\monsters\Cephalos Icon.png" />
+    <Content Include="images\monsters\Cephalos.png" />
+    <Resource Include="images\monsters\Chameleos Icon.png" />
+    <Resource Include="images\monsters\Chameleos.png" />
+    <Resource Include="images\monsters\Conga Icon.png" />
+    <Resource Include="images\monsters\Conga.png" />
+    <Resource Include="images\monsters\Congalala Icon.png" />
+    <Resource Include="images\monsters\Congalala.png" />
+    <Resource Include="images\monsters\Copper Blangonga Icon.png" />
+    <Resource Include="images\monsters\Copper Blangonga.png" />
+    <Resource Include="images\monsters\Crimson Fatalis Icon.png" />
+    <Resource Include="images\monsters\Crimson Fatalis.png" />
+    <Resource Include="images\monsters\Daimyo Hermitaur Icon.png" />
+    <Resource Include="images\monsters\Daimyo Hermitaur.png" />
+    <Resource Include="images\monsters\Diablos Icon.png" />
+    <Resource Include="images\monsters\Diablos.png" />
+    <Resource Include="images\monsters\Emerald Congalala Icon.png" />
+    <Resource Include="images\monsters\Emerald Congalala.png" />
+    <Resource Include="images\monsters\Fatalis Icon.png" />
+    <Resource Include="images\monsters\Fatalis.png" />
+    <Resource Include="images\monsters\Felyne Icon.png" />
+    <Resource Include="images\monsters\Gendrome Icon.png" />
+    <Resource Include="images\monsters\Gendrome.png" />
+    <Resource Include="images\monsters\Genprey Icon.png" />
+    <Resource Include="images\monsters\Genprey.png" />
+    <Resource Include="images\monsters\Giadrome Icon.png" />
+    <Resource Include="images\monsters\Giadrome.png" />
+    <Resource Include="images\monsters\Giaprey Icon.png" />
+    <Resource Include="images\monsters\Giaprey.png" />
+    <Resource Include="images\monsters\Gold Rajang Icon.png" />
+    <Resource Include="images\monsters\Gold Rajang.png" />
+    <Resource Include="images\monsters\Gravios Icon.png" />
+    <Resource Include="images\monsters\Gravios.png" />
+    <Resource Include="images\monsters\Great Thunderbug Icon.png" />
+    <Resource Include="images\monsters\Great Thunderbug.png" />
+    <Resource Include="images\monsters\Green Plesioth Icon.png" />
+    <Resource Include="images\monsters\Green Plesioth.png" />
+    <Resource Include="images\monsters\Gypceros Icon.png" />
+    <Resource Include="images\monsters\Gypceros.png" />
+    <Resource Include="images\monsters\Hermitaur Icon.png" />
+    <Resource Include="images\monsters\Hermitaur.jpg" />
+    <Resource Include="images\monsters\Hornetaur Icon.png" />
+    <Resource Include="images\monsters\Hornetaur.png" />
+    <Resource Include="images\monsters\Hypnocatrice Icon.png" />
+    <Resource Include="images\monsters\Hypnocatrice.png" />
+    <Resource Include="images\monsters\Iodrome Icon.png" />
+    <Resource Include="images\monsters\Iodrome.png" />
+    <Resource Include="images\monsters\Ioprey Icon.png" />
+    <Resource Include="images\monsters\Ioprey.png" />
+    <Resource Include="images\monsters\Kelbi Icon.png" />
+    <Resource Include="images\monsters\Kelbi.png" />
+    <Resource Include="images\monsters\Khezu Icon.png" />
+    <Resource Include="images\monsters\Khezu.png" />
+    <Resource Include="images\monsters\King Crown.png" />
+    <Resource Include="images\monsters\King Shakalaka Icon.png" />
+    <Resource Include="images\monsters\Kirin Icon.png" />
+    <Resource Include="images\monsters\Kirin.png" />
+    <Resource Include="images\monsters\Kushala Daora Icon.png" />
+    <Resource Include="images\monsters\Kushala Daora.png" />
+    <Resource Include="images\monsters\Kut-Ku Icon.png" />
+    <Resource Include="images\monsters\Lao-Shan Lung Icon.png" />
+    <Resource Include="images\monsters\Lao-Shan Lung.png" />
+    <Resource Include="images\monsters\Lavasioth Icon.png" />
+    <Resource Include="images\monsters\Lavasioth.png" />
+    <Resource Include="images\monsters\Lunastra Icon.png" />
+    <Resource Include="images\monsters\Lunastra.png" />
+    <Resource Include="images\monsters\Melynx Icon.png" />
+    <Resource Include="images\monsters\Mini Crown.png" />
+    <Resource Include="images\monsters\Monoblos Icon.png" />
+    <Resource Include="images\monsters\Monoblos.png" />
+    <Resource Include="images\monsters\Mosswine Icon.png" />
+    <Resource Include="images\monsters\Mosswine.png" />
+    <Resource Include="images\monsters\Nargacuga Icon.png" />
+    <Resource Include="images\monsters\Nargacuga.png" />
+    <Resource Include="images\monsters\Plesioth Icon.png" />
+    <Resource Include="images\monsters\Plesioth.png" />
+    <Resource Include="images\monsters\Plum Daimyo Hermitaur Icon.png" />
+    <Resource Include="images\monsters\Plum Daimyo Hermitaur.png" />
+    <Resource Include="images\monsters\Popo Icon.png" />
+    <Resource Include="images\monsters\Popo.png" />
+    <Resource Include="images\monsters\Purple Gypceros Icon.png" />
+    <Resource Include="images\monsters\Purple Gypceros.png" />
+    <Resource Include="images\monsters\Queen Vespoid Icon.png" />
+    <Resource Include="images\monsters\Queen Vespoid.png" />
+    <Resource Include="images\monsters\Rajang Icon.png" />
+    <Resource Include="images\monsters\Rajang.png" />
+    <Resource Include="images\monsters\Rathalos Icon.png" />
+    <Resource Include="images\monsters\Rathalos.png" />
+    <Resource Include="images\monsters\Rathian Icon.png" />
+    <Resource Include="images\monsters\Rathian.png" />
+    <Resource Include="images\monsters\Remobra Icon.png" />
+    <Resource Include="images\monsters\Remobra.png" />
+    <Resource Include="images\monsters\Rusted Kushala Daora Icon.png" />
+    <Resource Include="images\monsters\Rusted Kushala Daora.png" />
+    <Resource Include="images\monsters\Shakalaka Icon.png" />
+    <Resource Include="images\monsters\Shen Gaoren Icon.png" />
+    <Resource Include="images\monsters\Shen Gaoren.png" />
+    <Resource Include="images\monsters\Shogun Ceanataur Icon.png" />
+    <Resource Include="images\monsters\Shogun Ceanataur.png" />
+    <Resource Include="images\monsters\Teostra Icon.png" />
+    <Resource Include="images\monsters\Teostra.png" />
+    <Resource Include="images\monsters\Terra Shogun Ceanataur Icon.png" />
+    <Resource Include="images\monsters\Terra Shogun Ceanataur.png" />
+    <Resource Include="images\monsters\Tigrex Icon.png" />
+    <Resource Include="images\monsters\Tigrex.png" />
+    <Resource Include="images\monsters\Ukanlos Icon.png" />
+    <Resource Include="images\monsters\Ukanlos.png" />
+    <Resource Include="images\monsters\Velocidome.png" />
+    <Resource Include="images\monsters\Velocidrome Icon.png" />
+    <Resource Include="images\monsters\Velociprey Icon.png" />
+    <Resource Include="images\monsters\Velociprey.png" />
+    <Resource Include="images\monsters\Vespoid Icon.png" />
+    <Resource Include="images\monsters\Vespoid Queen.png" />
+    <Resource Include="images\monsters\White Fatalis Icon.png" />
+    <Resource Include="images\monsters\White Fatalis.png" />
+    <Resource Include="images\monsters\White Monoblos Icon.png" />
+    <Resource Include="images\monsters\White Monoblos.png" />
+    <Resource Include="images\monsters\Yama Tsukami Icon.png" />
+    <Resource Include="images\monsters\Yama Tsukami.png" />
+    <Resource Include="images\monsters\Yian Garuga Icon.png" />
+    <Resource Include="images\monsters\Yian Kut-Ku Icon.png" />
+    <Resource Include="images\monsters\Yian Kut-Ku.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\monsters\Azure Rathalos Icon.png" />
+    <Resource Include="images\monsters\Azure Rathalos.png" />
+    <Resource Include="images\monsters\Black Diablos Icon.png" />
+    <Resource Include="images\monsters\Black Gravios Icon.png" />
+    <Resource Include="images\monsters\Black Gravios.png" />
+    <Resource Include="images\monsters\Gold Rathian Icon.png" />
+    <Resource Include="images\monsters\Gold Rathian.png" />
+    <Resource Include="images\monsters\Pink Rathian Icon.png" />
+    <Resource Include="images\monsters\Pink Rathian.png" />
+    <Resource Include="images\monsters\Red Khezu Icon.png" />
+    <Resource Include="images\monsters\Red Khezu.png" />
+    <Resource Include="images\monsters\Silver Rathalos Icon.png" />
+    <Resource Include="images\monsters\Silver Rathalos.png" />
+    <Resource Include="images\monsters\Vespoid.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

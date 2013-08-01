@@ -1,0 +1,22 @@
+﻿<Window x:Class="MHFU.wVeggieElder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Veggie Elder" Height="300" Width="454" Loaded="Load">
+    <Grid Margin="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0" ItemsSource="{Binding}" Name="cbLocation" SelectionChanged="SelectionChanged" SelectedValue="ID" DisplayMemberPath="Loc" FontWeight="Bold" />
+        <DataGrid Grid.Row="1" ItemsSource="{Binding}" Name="dgItems" Margin="0,5,0,0">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="25" CellTemplate="{StaticResource Trade}" />
+                <DataGridTextColumn Header="Trade" Binding="{Binding TradeItem.Name}" />
+                <DataGridTemplateColumn Width="25" CellTemplate="{StaticResource CommonTrade}" />
+                <DataGridTextColumn Header="Common Trade" Binding="{Binding CommonItem.Name}" />
+                <DataGridTemplateColumn Width="25" CellTemplate="{StaticResource RareTrade}" />
+                <DataGridTextColumn Header="Rare Trade" Binding="{Binding RareItem.Name}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

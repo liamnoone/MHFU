@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MHFU" Class="Data" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=MHFU;Integrated Security=True" SettingsObjectName="MHFU.Properties.Settings" SettingsPropertyName="MHFUConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="items.Item" Member="Items">
+    <Type Name="Item">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(17) NOT NULL" CanBeNull="false" />
+      <Column Name="Rarity" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Icon" Type="System.String" DbType="VarChar(17) NOT NULL" CanBeNull="false" />
+      <Column Name="Buy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Sell" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="[Quest Only]" Member="Quest_Only" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Item_Combo" Member="Combos" ThisKey="ID" OtherKey="Result" Type="Combo" />
+      <Association Name="Item_Combo1" Member="Combos1" ThisKey="ID" OtherKey="ItemA" Type="Combo" />
+      <Association Name="Item_Combo2" Member="Combos2" ThisKey="ID" OtherKey="ItemB" Type="Combo" />
+      <Association Name="Item_Carve" Member="Carves" ThisKey="ID" OtherKey="Item" Type="Carve" />
+      <Association Name="Item_Veggie_Elder" Member="Veggie_Elders" ThisKey="ID" OtherKey="Common" Type="Veggie_Elder" />
+      <Association Name="Item_Veggie_Elder1" Member="Veggie_Elders1" ThisKey="ID" OtherKey="Rare" Type="Veggie_Elder" />
+      <Association Name="Item_Veggie_Elder2" Member="Veggie_Elders2" ThisKey="ID" OtherKey="Trade" Type="Veggie_Elder" />
+      <Association Name="Item_Decoration_Ingredient" Member="Decoration_Ingredients" ThisKey="ID" OtherKey="Ingredient" Type="Decoration_Ingredient" />
+      <Association Name="Item_Decoration" Member="Decorations" ThisKey="ID" OtherKey="Item" Type="Decoration" />
+    </Type>
+  </Table>
+  <Table Name="items.Combo" Member="Combos">
+    <Type Name="Combo">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Result" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemB" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Success" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Alchemy" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Item_Combo" Member="Item" ThisKey="Result" OtherKey="ID" Type="Item" IsForeignKey="true" />
+      <Association Name="Item_Combo1" Member="Item1" ThisKey="ItemA" OtherKey="ID" Type="Item" IsForeignKey="true" />
+      <Association Name="Item_Combo2" Member="Item2" ThisKey="ItemB" OtherKey="ID" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="monsters.Type" Member="Types">
+    <Type Name="Type">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Species" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Association Name="Type_Monster" Member="Monsters" ThisKey="ID" OtherKey="Species" Type="Monster" />
+    </Type>
+  </Table>
+  <Table Name="monsters.Monster" Member="Monsters">
+    <Type Name="Monster">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Species" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Min Length]" Member="Min_Length" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="[Max Length]" Member="Max_Length" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Association Name="Monster_Carve" Member="Carves" ThisKey="ID" OtherKey="Monster" Type="Carve" />
+      <Association Name="Type_Monster" Member="Type" ThisKey="Species" OtherKey="ID" Type="Type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="monsters.Carve" Member="Carves">
+    <Type Name="Carve">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Monster" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Item" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Source" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Rate" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Rank" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="Item_Carve" Member="Item1" ThisKey="Item" OtherKey="ID" Type="Item" IsForeignKey="true" />
+      <Association Name="Monster_Carve" Member="Monster1" ThisKey="Monster" OtherKey="ID" Type="Monster" IsForeignKey="true" />
+      <Association Name="Rank_Carve" Member="Rank1" ThisKey="Rank" OtherKey="ID" Type="Rank" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rank" Member="Ranks">
+    <Type Name="Rank">
+      <Column Name="ID" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(9) NOT NULL" CanBeNull="false" />
+      <Association Name="Rank_Carve" Member="Carves" ThisKey="ID" OtherKey="Rank" Type="Carve" />
+    </Type>
+  </Table>
+  <Table Name="items.[Veggie Elder]" Member="Veggie_Elders">
+    <Type Name="Veggie_Elder">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Area" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Trade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Common" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Rare" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Item_Veggie_Elder" Member="CommonItem" ThisKey="Common" OtherKey="ID" Type="Item" IsForeignKey="true" />
+      <Association Name="Item_Veggie_Elder1" Member="RareItem" ThisKey="Rare" OtherKey="ID" Type="Item" IsForeignKey="true" />
+      <Association Name="Item_Veggie_Elder2" Member="TradeItem" ThisKey="Trade" OtherKey="ID" Type="Item" IsForeignKey="true" />
+      <Association Name="Location_Veggie_Elder" Member="Location" ThisKey="Area" OtherKey="ID" Type="Location" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="items.Trenya" Member="Trenyas">
+    <Type Name="Trenya">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Location" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Points" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="General" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Mineral" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Fish" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Insect" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="[Unique]" Member="Unique" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Monster" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Jewel" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Location_Trenya" Member="Loc" ThisKey="Location" OtherKey="ID" Type="Location" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Location" Member="Locations">
+    <Type Name="Location">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Location" Member="Loc" Type="System.String" DbType="NVarChar(16) NOT NULL" CanBeNull="false" />
+      <Association Name="Location_Veggie_Elder" Member="Veggie_Elders" ThisKey="ID" OtherKey="Area" Type="Veggie_Elder" />
+      <Association Name="Location_Trenya" Member="Trenyas" ThisKey="ID" OtherKey="Location" Type="Trenya" />
+    </Type>
+  </Table>
+  <Table Name="skills.Skill" Member="Skills">
+    <Type Name="Skill">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tree" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Skill" Member="Name" Storage="_Skill1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Points" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Skill_Tree_Skill" Member="Skill_Tree" ThisKey="Tree" OtherKey="ID" Type="Skill_Tree" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="skills.[Decoration Ingredient]" Member="Decoration_Ingredients">
+    <Type Name="Decoration_Ingredient">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Decoration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ingredient" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Alt" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Item_Decoration_Ingredient" Member="Dec_Ingredient" Storage="_Item" ThisKey="Ingredient" OtherKey="ID" Type="Item" IsForeignKey="true" />
+      <Association Name="Decoration_Decoration_Ingredient" Member="Dec" ThisKey="Decoration" OtherKey="ID" Type="Decoration" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="skills.Decoration" Member="Decorations">
+    <Type Name="Decoration">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Item" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Slots" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="[Skill A]" Member="Skill_A" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Skill A Points]" Member="Skill_A_Points" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="[Skill B]" Member="Skill_B" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Skill B Points]" Member="Skill_B_Points" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Decoration_Decoration_Ingredient" Member="Decoration_Ingredients" ThisKey="ID" OtherKey="Decoration" Type="Decoration_Ingredient" />
+      <Association Name="Item_Decoration" Member="Item1" ThisKey="Item" OtherKey="ID" Type="Item" IsForeignKey="true" />
+      <Association Name="Skill_Tree_Decoration" Member="SkillA" ThisKey="Skill_A" OtherKey="ID" Type="Skill_Tree" IsForeignKey="true" />
+      <Association Name="Skill_Tree_Decoration1" Member="SkillB" ThisKey="Skill_B" OtherKey="ID" Type="Skill_Tree" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="skills.[Skill Tree]" Member="Skill_Trees">
+    <Type Name="Skill_Tree">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tree" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Skill_Tree_Skill" Member="Skills" ThisKey="ID" OtherKey="Tree" Type="Skill" />
+      <Association Name="Skill_Tree_Decoration" Member="Decorations" ThisKey="ID" OtherKey="Skill_A" Type="Decoration" />
+      <Association Name="Skill_Tree_Decoration1" Member="Decorations1" ThisKey="ID" OtherKey="Skill_B" Type="Decoration" />
+    </Type>
+  </Table>
+</Database>
